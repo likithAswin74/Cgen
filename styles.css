@@ -1,0 +1,655 @@
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Accent Color Variable */
+:root {
+  --accent-orange: #ff6a00;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Left Section */
+.content {
+  flex: 2;
+  min-width: 300px;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-orange);
+  margin-top: 8px;
+}
+
+.subheading {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--accent-orange); /* Orange highlight */
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+/* Rating and Trust */
+.rating {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.rating .stars {
+  color: var(--accent-orange); /* Orange stars */
+  margin-right: 10px;
+}
+
+.trusted {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #cccccc;
+}
+
+/* Sidebar Card */
+.sidebar {
+  flex: 1;
+  min-width: 280px;
+  background-color: #fef1c5;
+  color: #000;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+.sidebar p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.sidebar button {
+  background-color: var(--accent-orange);
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #e65c00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .sidebar {
+    order: -1;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+/* section 2 */
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+.roadmap-section {
+  background-color: #000000;
+}
+
+.roadmap-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.roadmap-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff6b00; /* orange underline */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.roadmap-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadmap-image {
+  width: 100%;
+  max-height: 600px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.3); /* subtle orange glow */
+  transition: transform 0.3s ease;
+}
+
+.roadmap-image:hover {
+  transform: scale(1.02);
+}
+
+
+
+/* Hover effect for Section 1 and Section 2 images */
+.sidebar img:hover,
+.roadmap-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 14px var(--accent-orange);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+
+/* Section 3 - Timeline */
+
+.timeline-section {
+  background-color: #000000;
+  padding: 20px 20px;
+}
+
+.timeline-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-orange);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.module-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.module-tab {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ccc;
+  cursor: pointer;
+  padding-bottom: 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.module-tab:hover {
+  color: var(--accent-orange);
+}
+
+.module-tab.active {
+  color: #ffffff;
+}
+
+.module-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--accent-orange);
+  border-radius: 2px;
+}
+
+.module-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.module-image {
+  width: 100%;
+  max-height: 600px;
+  max-width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+}
+
+.module-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 107, 0, 0.5);
+}
+
+
+
+
+
+
+
+
+/* Section 4 - Importance of Web Development */
+
+.importance-section {
+  background-color: #000000;
+  padding: 20px 20px;
+}
+
+.importance-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.importance-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-orange);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.importance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.importance-card {
+  background-color: #1a1c2e;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.1);
+}
+
+.importance-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+}
+
+.icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.importance-card h3 {
+  color: var(--accent-orange);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.importance-card p {
+  color: #cccccc;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+
+
+
+/* Section 5 */
+.projects-section {
+  background-color: #000000;
+  padding: 20px 20px;
+  color: white;
+  overflow: hidden;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff6a00;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.project-card {
+  min-width: 300px;
+  background-color: #1a1c2d;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.2);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  max-height: 180px; /* optional: keeps image height consistent */
+  object-fit: cover; /* keeps image neat and inside the card */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+.project-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 106, 0, 0.4); /* Orange glow */
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  font-size: 18px;
+  color: #ff6a00;
+}
+
+
+
+
+/* section 6 */
+/* Section 6: Certificate of Completion */
+.certificate-section {
+  background-color: #000000;
+  padding: 20px 20px;
+  color: white;
+}
+
+.certificate-section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.certificate-section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff6a00;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Layout: Image Left, Content Right */
+.certificate-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  gap: 40px;
+}
+
+/* Left: Certificate Image */
+.certificate-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.certificate-image img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 106, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.certificate-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(255, 106, 0, 0.4);
+}
+
+/* Right: Description and Info */
+.certificate-description {
+  flex: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 40px;
+}
+
+.certificate-description h3 {
+  font-size: 22px;
+  color: #ff6a00;
+  margin-bottom: 15px;
+}
+
+.certificate-description p {
+  font-size: 16px;
+  color: #dddddd;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.certificate-description ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.certificate-description li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .certificate-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .certificate-image,
+  .certificate-description {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .certificate-description {
+    padding-top: 20px;
+  }
+}
+
+
+
+
+
+/* Section 7: Enrollment Form */
+.enrollment-section {
+  background-color: #000000;
+  padding: 10px 20px;
+  color: white;
+}
+
+.enrollment-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.enrollment-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff6a00;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.enrollment-form {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #ff6a00;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1b1d2a;
+  color: white;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff6a00;
+  box-shadow: 0 0 5px rgba(255, 106, 0, 0.5);
+}
+
+.submit-btn {
+  padding: 14px;
+  font-size: 18px;
+  background-color: #ff6a00;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e65a00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .enrollment-form {
+    padding: 0 10px;
+  }
+}
+
+
+
+
+.main-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
