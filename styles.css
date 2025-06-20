@@ -345,7 +345,10 @@ h1::after {
   line-height: 1.5;
 }
 
+
+
 /* Section 5 */
+
 .projects-section {
   background-color: #ece7d9;
   padding: 20px 20px;
@@ -384,7 +387,7 @@ h1::after {
 }
 
 .project-card {
-  min-width: 270px;
+  min-width: 220px;
   background-color: #fff;
   border-radius: 12px;
   padding: 20px;
@@ -413,6 +416,9 @@ h1::after {
   font-size: 18px;
   color: var(--accent-orange);
 }
+
+
+
 
 /* section 6 */
 .certificate-section {
@@ -607,3 +613,6 @@ h1::after {
   margin: 0 auto;
   padding: 0 10px;
 }
+
+
+
