@@ -108,59 +108,67 @@
 <!-- Section 5: Projects You Build -->
 
 <section class="projects-section">
-  <div class="section-container">
-    <h2 class="section-heading">Projects You Build</h2>
-    <div class="carousel-container">
-      <div class="carousel-track" id="carousel-track">
-        <div class="project-card">
-          <img src="portfolio.png" alt="Portfolio Website">
-          <h3>Portfolio Website</h3>
-        </div>
-        <div class="project-card">
-          <img src="password.png" alt="Password Generator">
-          <h3>Password Generator</h3>
-        </div>
-        <div class="project-card">
-          <img src="calc.png" alt="Calculator">
-          <h3>Calculator</h3>
-        </div>
-        <div class="project-card">
-          <img src="todo.png" alt="To-do List">
-          <h3>To-do List</h3>
-        </div>
-        <div class="project-card">
-          <img src="name.png" alt="Name Card">
-          <h3>Name Card</h3>
+      <div class="section-container">
+        <h2 class="section-heading">Projects You Build</h2>
+        <div class="carousel-container">
+          <div class="carousel-track" id="carousel-track">
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="portfolio.png" alt="Portfolio Website">
+                <h3>Portfolio Website</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="password.png" alt="Password Generator">
+                <h3>Password Generator</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="calc.png" alt="Calculator">
+                <h3>Calculator</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="todo.png" alt="To-do List">
+                <h3>To-do List</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="name.png" alt="Name Card">
+                <h3>Name Card</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-<!-- Section 6: Certificate of Completion -->
-
-<section class="certificate-section">
-  <div class="section-container">
-    <h2 class="section-heading">Certificate of Completion</h2>
-    <div class="certificate-content">
-      <div class="certificate-image">
-        <img src="certificate.png" alt="Certificate Image" />
+    <!-- ======== UPDATED SECTION 6: CERTIFICATE HTML ======== -->
+    <section class="certificate-section">
+      <div class="section-container">
+        <h2 class="section-heading">Certificate of Completion</h2>
+        <div class="certificate-content">
+          <div class="certificate-image">
+            <img src="certificate.png" alt="Certificate Image" />
+          </div>
+          <div class="certificate-description">
+            <h3 class="certificate-subheading">Web Development Certificate</h3>
+            <p>
+              Upon completion of our Web Development Mastery Program, you'll earn a professionally designed certificate that showcases your skills in HTML, CSS, JavaScript, React, backend technologies, and more.
+            </p>
+            <ul>
+              <li>✔️ Verified and shareable</li>
+              <li>✔️ Industry-recognized</li>
+              <li>✔️ Perfect for LinkedIn and portfolios</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="certificate-description">
-        <h3 class="certificate-subheading">Web Development Certificate</h3>
-        <p>
-          Upon completion of our Web Development Mastery Program, you’ll earn a professionally designed certificate that showcases your skills in HTML, CSS, JavaScript, React, backend technologies, and more.
-        </p>
-        <ul>
-          <li>✔️ Verified and shareable</li>
-          <li>✔️ Industry-recognized</li>
-          <li>✔️ Perfect for LinkedIn and portfolios</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
 <!-- Section 7: Enrollment Form -->
@@ -228,38 +236,64 @@
   });
 
 
+  // Updated Carousel Functionality
+// Improved Carousel with Infinite Auto-Scrolling
+document.addEventListener('DOMContentLoaded', function() {
   const track = document.getElementById('carousel-track');
   const cards = document.querySelectorAll('.project-card');
-  const visibleCount = 3;
-  let index = 0;
+  let currentIndex = 0;
+  let autoScrollInterval;
+  const scrollSpeed = 2000; // 2 seconds per slide
 
-  // Clone first few cards to make infinite scroll feel seamless
-  for (let i = 0; i < visibleCount; i++) {
+  // Clone first few cards for infinite effect
+  const clonesToAdd = Math.min(3, cards.length);
+  for (let i = 0; i < clonesToAdd; i++) {
     const clone = cards[i].cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
     track.appendChild(clone);
   }
 
-  function slideCarousel() {
-    const cardWidth = cards[0].offsetWidth + 20; // 20px is gap
-    index++;
-
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-    // Reset after last slide smoothly
-    if (index >= cards.length) {
+  function scrollToNext() {
+    const cardWidth = cards[0].offsetWidth + 20; // Include gap
+    currentIndex++;
+    
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    
+    // When reaching original cards, reset seamlessly
+    if (currentIndex >= cards.length) {
       setTimeout(() => {
         track.style.transition = 'none';
-        index = 0;
-        track.style.transform = `translateX(0)`;
+        currentIndex = 0;
+        track.style.transform = 'translateX(0)';
         void track.offsetWidth; // Force reflow
         track.style.transition = 'transform 0.5s ease-in-out';
       }, 500);
     }
   }
 
-  setInterval(slideCarousel, 2000);
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(scrollToNext, scrollSpeed);
+  }
 
-  
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // Initialize
+  startAutoScroll();
+
+  // Pause on hover/touch
+  track.addEventListener('mouseenter', stopAutoScroll);
+  track.addEventListener('mouseleave', startAutoScroll);
+  track.addEventListener('touchstart', stopAutoScroll);
+  track.addEventListener('touchend', startAutoScroll);
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    const cardWidth = cards[0].offsetWidth + 20;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  });
+});
 </script>
 
 </html>
