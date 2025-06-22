@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+
+<!--section 1-->    
+
+<section class="course-hero">
+  <div class="main-container">
+    <div class="course-hero-grid">
+      <!-- Left Content -->
+      <div class="course-info">
+        <h1>Python Programming for Beginners</h1>
+        <p class="quote">🚀 <span class="emoji-bounce">"Every expert was once a beginner. Start now!"</span></p>
+        <p class="description">
+          Learn Python from scratch through engaging lessons and hands-on projects. Build a strong foundation in one of the most versatile programming languages used in Data Science, Web Development, Automation, and more!
+        </p>
+
+        <div class="course-details">
+          <div class="detail-box">🧠 <strong>Eligibility:</strong><br> Age 10+<br><span class="emoji-wave">🙋</span></div>
+          <div class="detail-box">🌐 <strong>Mode:</strong><br> Online & Offline<br><span class="emoji-pulse">💻📍</span></div>
+          <div class="detail-box">⏱️ <strong>Duration:</strong><br> 4 Weeks<br><span class="emoji-flip">📅</span></div>
+          <div class="detail-box">👨‍🎓 <strong>Students Enrolled:</strong><br> <span id="student-count">0</span>+<br><span class="emoji-bounce">🔥</span></div>
+        </div>
+      </div>
+
+      <!-- Right Image and Button -->
+      <div class="course-sidebar">
+        <img src="A_person_lap.png" alt="Course Image">
+        <button class="demo-btn">📅 Book a Demo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--section 2--> 
+
+<section class="curriculum-section">
+  <div class="main-container">
+    <div class="curriculum-header-wrapper">
+        <h2 class="section-heading">Course Curriculum</h2>
+    </div>
+
+    <div class="curriculum-modules">
+      <!-- Module 1 -->
+      <details class="module">
+        <summary>📘 Module 1: Python Basics</summary>
+        <div class="module-content">
+          <img src="module1.png" alt="Module 1 Content">
+        </div>
+      </details>
+
+      <!-- Module 2 -->
+      <details class="module">
+        <summary>🧠 Module 2: Real-World Projects</summary>
+        <div class="module-content">
+          <img src="module2.png" alt="Module 2 Content">
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Section 3 - Skills You’ll Master -->
+<!-- Section 3 - Skills You'll Master -->
+<section class="skills-section">
+  <div class="main-container">
+    <div class="skills-header-wrapper">
+      <h2 class="section-heading">Skills You'll Master</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">🧠 Programming Logic & Syntax</div>
+      <div class="skill-card">🔍 Problem Solving Skills</div>
+      <div class="skill-card">🛠️ Real-World Project Building</div>
+      <div class="skill-card">🐞 Debugging & Error Handling</div>
+      <div class="skill-card">📚 Understanding Python Libraries</div>
+      <div class="skill-card">🌐 Web Basics with Python</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+</body>
+
+<script>
+  function animateCount() {
+    const counter = document.getElementById("student-count");
+    let count = 1;
+
+    const interval = setInterval(() => {
+      counter.textContent = count;
+      count++;
+
+      if (count > 50) {
+        clearInterval(interval);
+        setTimeout(animateCount, 1500); // restart after 1.5 sec pause
+      }
+    }, 40); // controls speed of count (40ms * 50 = 2 seconds approx)
+  }
+
+  document.addEventListener("DOMContentLoaded", animateCount);
+</script>
+
+
+
+</html>
