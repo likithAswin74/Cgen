@@ -94,7 +94,47 @@
   </div>
 </section>
 
+<!-- Section 4: Projects You Build -->
 
+<section class="projects-section">
+      <div class="section-container">
+        <h2 class="section-heading">Projects You Build</h2>
+        <div class="carousel-container">
+          <div class="carousel-track" id="carousel-track">
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="portfolio.png" alt="Portfolio Website">
+                <h3>Portfolio Website</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="password.png" alt="Password Generator">
+                <h3>Password Generator</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="calc.png" alt="Calculator">
+                <h3>Calculator</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="todo.png" alt="To-do List">
+                <h3>To-do List</h3>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-card-inner">
+                <img src="name.png" alt="Name Card">
+                <h3>Name Card</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 </body>
@@ -116,6 +156,68 @@
   }
 
   document.addEventListener("DOMContentLoaded", animateCount);
+
+
+  
+
+    // Updated Carousel Functionality
+// Improved Carousel with Infinite Auto-Scrolling
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.getElementById('carousel-track');
+  const cards = document.querySelectorAll('.project-card');
+  let currentIndex = 0;
+  let autoScrollInterval;
+  const scrollSpeed = 2500; // 2 seconds per slide
+
+  // Clone first few cards for infinite effect
+  const clonesToAdd = Math.min(3, cards.length);
+  for (let i = 0; i < clonesToAdd; i++) {
+    const clone = cards[i].cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  }
+
+  function scrollToNext() {
+    const cardWidth = cards[0].offsetWidth + 20; // Include gap
+    currentIndex++;
+    
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    
+    // When reaching original cards, reset seamlessly
+    if (currentIndex >= cards.length) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        track.style.transform = 'translateX(0)';
+        void track.offsetWidth; // Force reflow
+        track.style.transition = 'transform 0.5s ease-in-out';
+      }, 500);
+    }
+  }
+
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(scrollToNext, scrollSpeed);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // Initialize
+  startAutoScroll();
+
+  // Pause on hover/touch
+  track.addEventListener('mouseenter', stopAutoScroll);
+  track.addEventListener('mouseleave', startAutoScroll);
+  track.addEventListener('touchstart', stopAutoScroll);
+  track.addEventListener('touchend', startAutoScroll);
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    const cardWidth = cards[0].offsetWidth + 20;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  });
+});
 </script>
 
 
