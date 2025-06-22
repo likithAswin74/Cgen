@@ -629,3 +629,401 @@ h1::after {
 
 
 
+
+
+
+
+
+
+
+
+/* Css for course page */
+
+/* section 1 */
+
+ .course-hero {
+    background-color: #ece7d9;
+    padding: 60px 20px;
+    color: #565452;
+  }
+
+  .course-hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .course-info {
+    flex: 2;
+    min-width: 300px;
+  }
+
+  .course-info h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .course-info h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ef673c;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  .course-info .quote {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ef673c;
+    margin: 12px 0;
+  }
+
+  .course-info .description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 25px;
+  }
+
+  .course-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .detail-box {
+    background-color: #fff;
+    padding: 15px 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .detail-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .course-sidebar {
+    flex: 1;
+    min-width: 260px;
+    text-align: center;
+  }
+
+  .course-sidebar img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .demo-btn {
+    background-color: #ef673c;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .demo-btn:hover {
+    background-color: #d75a2a;
+  }
+
+  /* Emoji Animations */
+  .emoji-bounce {
+    display: inline-block;
+    animation: bounce 1s infinite;
+  }
+
+  .emoji-wave {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+  }
+
+  .emoji-pulse {
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  .emoji-flip {
+    display: inline-block;
+    animation: flip 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes flip {
+    0%, 100% { transform: rotateY(0deg); }
+    50% { transform: rotateY(180deg); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .course-hero-grid {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .course-details {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 20px;
+    }
+
+    .course-sidebar {
+      order: 2;
+    }
+  }
+  /* Slide-up animation for detail boxes on page load */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-box {
+  /* existing styles kept untouched */
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.detail-box:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.detail-box:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.detail-box:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.detail-box:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Hover effect on sidebar image */
+.course-sidebar img {
+  margin-top: 40px;
+  /* keep existing styles and add below */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-sidebar img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(239, 103, 60, 0.3);
+}
+
+
+
+
+/* Section 2 - Course Curriculum */
+.curriculum-section {
+  background-color: #ece7d9;
+  padding: 20px 20px;
+  color: #565452;
+}
+
+.curriculum-header-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 50px;
+  color: #565452;
+  text-align: center;
+}
+
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ef673c;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.curriculum-modules {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.module {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.module summary {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px 20px;
+  cursor: pointer;
+  background-color: #f5f1e6;
+  color: #565452;
+  transition: background 0.3s;
+}
+
+.module[open] summary {
+  background-color: #ef673c;
+  color: #fff;
+}
+
+.module-content {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.module-content img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.module-content img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 32px;
+  }
+
+  .module summary {
+    font-size: 16px;
+  }
+}
+
+
+
+
+/* Section 3 - Skills */
+/* Section 3 - Skills */
+.skills-section {
+  background-color: #ece7d9; /* same as section 2 */
+  padding: 60px 20px;
+  color: #565452;
+}
+
+.skills-header-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.skills-section .section-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #565452;
+}
+
+.skills-section .section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ef673c;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.skills-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Force 3 per row on desktop */
+  gap: 25px;
+}
+
+.skill-card {
+  background-color: #fff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(239, 103, 60, 0.1); /* soft orange shadow */
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 30px rgba(239, 103, 60, 0.25); /* stronger glow on hover */
+}
+
+/* Entry animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .skills-section .section-heading {
+    font-size: 2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* Stack gracefully */
+  }
+
+  .skill-card {
+    font-size: 15px;
+    padding: 20px 16px;
+  }
+}
