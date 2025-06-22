@@ -13,7 +13,7 @@
 
 <!--section 1-->    
 
-<section class="course-hero">
+<section class="course-hero fade-in">
   <div class="main-container">
     <div class="course-hero-grid">
       <!-- Left Content -->
@@ -45,7 +45,7 @@
 
 <!--section 2--> 
 
-<section class="curriculum-section">
+<section class="curriculum-section fade-in">
   <div class="main-container">
     <div class="curriculum-header-wrapper">
         <h2 class="section-heading">Course Curriculum</h2>
@@ -96,9 +96,9 @@
 
 <!-- Section 4: Projects You Build -->
 
-<section class="projects-section">
+<section class="projects-section fade-in">
       <div class="section-container">
-        <h2 class="section-heading">Projects You Build</h2>
+        <h2 class="section-heading">Capstone Assessment Projects</h2>
         <div class="carousel-container">
           <div class="carousel-track" id="carousel-track">
             <div class="project-card">
@@ -158,7 +158,7 @@
   document.addEventListener("DOMContentLoaded", animateCount);
 
 
-  
+
 
     // Updated Carousel Functionality
 // Improved Carousel with Infinite Auto-Scrolling
@@ -218,6 +218,26 @@ document.addEventListener('DOMContentLoaded', function() {
     track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   });
 });
+
+
+
+// fade effect
+const faders = document.querySelectorAll('.fade-in');
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); // Optional: only animate once
+      }
+    });
+  }, {
+    threshold: 0.1,
+  });
+
+  faders.forEach(el => {
+    appearOnScroll.observe(el);
+  });
 </script>
 
 
